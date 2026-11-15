@@ -52,3 +52,138 @@ Menyimpan riwayat misi yang diambil karakter. Tabel ini menjadi penghubung relas
 
 <img width="560" height="138" alt="Cuplikan layar 2026-11-16 032731" src="https://github.com/user-attachments/assets/4a680eb3-b39d-4db2-a231-6b049f3ca640" />
 
+
+
+-- database game rpg sederhana
+
+create database if not exists game_rpg;
+use game_rpg;
+
+-- tabel pemain (akun orang yang main)
+create table pemain (
+    id_pemain int auto_increment primary key,
+    username varchar(30) not null,
+    email varchar(50) not null,
+    tgl_daftar date
+);
+
+-- tabel kelas (job karakter)
+create table kelas (
+    id_kelas int auto_increment primary key,
+    nama_kelas varchar(20) not null,
+    hp int,
+    serangan int
+);
+
+-- tabel karakter, 1 pemain bisa punya lebih dari 1 karakter
+create table karakter (
+    id_karakter int auto_increment primary key,
+    id_pemain int,
+    id_kelas int,
+    nama_karakter varchar(30) not null,
+    level int default 1,
+    gold int default 100,
+    foreign key (id_pemain) references pemain(id_pemain),
+    foreign key (id_kelas) references kelas(id_kelas)
+);
+
+-- tabel item (barang di game)
+create table item (
+    id_item int auto_increment primary key,
+    nama_item varchar(40) not null,
+    jenis varchar(20),
+    harga int
+);
+
+-- tabel inventaris, isi tas tiap karakter
+create table inventaris (
+    id_inventaris int auto_increment primary key,
+    id_karakter int,
+    id_item int,
+    jumlah int default 1,
+    foreign key (id_karakter) references karakter(id_karakter),
+    foreign key (id_item) references item(id_item)
+);
+
+-- tabel quest (misi)
+create table quest (
+    id_quest int auto_increment primary key,
+    nama_quest varchar(50) not null,
+    level_minimal int default 1,
+    hadiah_gold int
+);
+
+-- tabel quest_karakter, misi yang diambil karakter
+create table quest_karakter (
+    id int auto_increment primary key,
+    id_karakter int,
+    id_quest int,
+    status varchar(15) default 'berjalan',
+    foreign key (id_karakter) references karakter(id_karakter),
+    foreign key (id_quest) references quest(id_quest)
+);
+
+-- isi data
+
+insert into pemain (username, email, tgl_daftar) values
+('budi_gamer', 'budi@gmail.com', '2026-01-10'),
+('sari_mage', 'sari@gmail.com', '2026-02-05'),
+('andi99', 'andi99@gmail.com', '2026-03-18');
+
+insert into kelas (nama_kelas, hp, serangan) values
+('Warrior', 150, 20),
+('Mage', 90, 35),
+('Archer', 110, 28);
+
+insert into karakter (id_pemain, id_kelas, nama_karakter, level, gold) values
+(1, 1, 'Garrus', 5, 350),
+(1, 2, 'Merlinn', 2, 120),
+(2, 2, 'Aurelia', 8, 780),
+(3, 3, 'Sylva', 6, 410);
+
+insert into item (nama_item, jenis, harga) values
+('Pedang Besi', 'senjata', 150),
+('Tongkat Sihir', 'senjata', 200),
+('Armor Kulit', 'armor', 100),
+('Potion HP', 'potion', 30);
+
+insert into inventaris (id_karakter, id_item, jumlah) values
+(1, 1, 1),
+(1, 4, 5),
+(2, 2, 1),
+(3, 2, 1),
+(3, 4, 3),
+(4, 3, 1);
+
+insert into quest (nama_quest, level_minimal, hadiah_gold) values
+('Basmi Slime', 1, 50),
+('Antar Surat ke Desa', 2, 80),
+('Kalahkan Raja Goblin', 6, 500);
+
+insert into quest_karakter (id_karakter, id_quest, status) values
+(1, 1, 'selesai'),
+(1, 2, 'berjalan'),
+(3, 3, 'berjalan'),
+(4, 1, 'selesai');
+
+-- cek data
+
+-- karakter + pemilik + kelasnya
+select karakter.nama_karakter, pemain.username, kelas.nama_kelas, karakter.level
+from karakter
+join pemain on karakter.id_pemain = pemain.id_pemain
+join kelas on karakter.id_kelas = kelas.id_kelas;
+
+-- isi tas karakter
+select karakter.nama_karakter, item.nama_item, inventaris.jumlah
+from inventaris
+join karakter on inventaris.id_karakter = karakter.id_karakter
+join item on inventaris.id_item = item.id_item;
+
+-- quest yang sudah selesai
+select karakter.nama_karakter, quest.nama_quest
+from quest_karakter
+join karakter on quest_karakter.id_karakter = karakter.id_karakter
+join quest on quest_karakter.id_quest = quest.id_quest
+where quest_karakter.status = 'selesai';
+
