@@ -36,3 +36,13 @@ Menyimpan tokoh yang dibuat dan dimainkan oleh pemain. Tabel ini terhubung ke pe
 Menyimpan daftar seluruh barang yang ada di dalam game, seperti senjata, armor, dan potion
 
 <img width="546" height="149" alt="Cuplikan layar 2026-11-16 024827" src="https://github.com/user-attachments/assets/9667bc6a-88fe-4c1c-8bae-984edfe36459" />
+
+# 5. Tabel inventori
+Menyimpan barang yang dimiliki setiap karakter. Tabel ini menjadi penghubung relasi many-to-many antara karakter dan item.
+
+<img width="635" height="140" alt="Cuplikan layar 2026-11-16 032101" src="https://github.com/user-attachments/assets/4ac36c51-89f6-4396-bc20-b47cf714a1ba" />
+
+# 6. Tabel quest
+Menyimpan daftar misi yang dapat diambil karakter beserta syarat dan hadiahnya.
+
+<img width="552" height="143" alt="Cuplikan layar 2026-11-16 032334" src="https://github.com/user-attachments/assets/8999a1d1-4f4c-4505-992f-14d02ea754b6" />
