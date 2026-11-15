@@ -22,7 +22,7 @@ Menyimpan data akun orang yang bermain game. Setiap pemain bisa memiliki lebih d
 
 <img width="543" height="135" alt="Cuplikan layar 2026-11-16 022339" src="https://github.com/user-attachments/assets/eea7ef04-d8c8-4495-a2e5-9f5d7264e4b9" />
 
-2. Tabel kelas
+# 2. Tabel kelas
 Menyimpan jenis atau profesi karakter, misalnya Pendekar, Penyihir, dan Pemanah, beserta bonus statusnya.
 
 <img width="546" height="146" alt="Cuplikan layar 2026-11-16 023021" src="https://github.com/user-attachments/assets/68aeb7b6-88e5-4284-991f-9c8610ac517b" />
