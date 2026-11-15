@@ -46,3 +46,9 @@ Menyimpan barang yang dimiliki setiap karakter. Tabel ini menjadi penghubung rel
 Menyimpan daftar misi yang dapat diambil karakter beserta syarat dan hadiahnya.
 
 <img width="552" height="143" alt="Cuplikan layar 2026-11-16 032334" src="https://github.com/user-attachments/assets/8999a1d1-4f4c-4505-992f-14d02ea754b6" />
+
+# 7. Tabel karakter_quest
+Menyimpan riwayat misi yang diambil karakter. Tabel ini menjadi penghubung relasi many-to-many antara karakter dan quest.
+
+<img width="560" height="138" alt="Cuplikan layar 2026-11-16 032731" src="https://github.com/user-attachments/assets/4a680eb3-b39d-4db2-a231-6b049f3ca640" />
+
