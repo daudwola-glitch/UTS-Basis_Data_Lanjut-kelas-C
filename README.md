@@ -26,3 +26,13 @@ Menyimpan data akun orang yang bermain game. Setiap pemain bisa memiliki lebih d
 Menyimpan jenis atau profesi karakter, misalnya Pendekar, Penyihir, dan Pemanah, beserta bonus statusnya.
 
 <img width="546" height="146" alt="Cuplikan layar 2026-11-16 023021" src="https://github.com/user-attachments/assets/68aeb7b6-88e5-4284-991f-9c8610ac517b" />
+
+# 3. Tabel karakter
+Menyimpan tokoh yang dibuat dan dimainkan oleh pemain. Tabel ini terhubung ke pemain dan kelas.
+
+<img width="553" height="196" alt="Cuplikan layar 2026-11-16 024116" src="https://github.com/user-attachments/assets/1414d73b-fc63-426d-94fa-1fc04e861120" />
+
+# 4. Tabel item
+Menyimpan daftar seluruh barang yang ada di dalam game, seperti senjata, armor, dan potion
+
+<img width="546" height="149" alt="Cuplikan layar 2026-11-16 024827" src="https://github.com/user-attachments/assets/9667bc6a-88fe-4c1c-8bae-984edfe36459" />
